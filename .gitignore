@@ -1,1 +1,46 @@
+# Node modules
 node_modules/
+
+# Build outputs
+/dist
+/build
+/out
+
+# Electron-packager / Electron-builder
+*.asar
+*.exe
+*.dmg
+*.app
+*.deb
+*.snap
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# VSCode settings
+.vscode/
+
+# Environment variables
+.env
+.env.*.local
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# TypeScript build artifacts
+*.tsbuildinfo
+
+# Coverage directory
+coverage/
+
+# Electron-specific
+electron-debug.log*
