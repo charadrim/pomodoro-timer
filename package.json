@@ -1,0 +1,23 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charadrim/pomodoro-timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charadrim/pomodoro-timer/issues"
+  },
+  "homepage": "https://github.com/charadrim/pomodoro-timer#readme",
+  "devDependencies": {
+    "electron": "^36.2.0"
+  }
+}
