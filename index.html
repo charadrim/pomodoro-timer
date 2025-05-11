@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -11,10 +11,37 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>Hello from Electron renderer!</title>
+    <title>Pomodoro Timer</title>
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <div>
+      <h1>Pomodoro Timer &#127813;</h1>
+      <div>
+        <h2>Pomodoro</h2>
+        <p>Work for 25 minutes!</p>
+        <h3>Timer: <span id="timerDisplay">25:00</span></h3>
+        <button id="startButton">Start</button>
+        <button id="resetButton">Reset</button>
+      </div>
+
+      <div>
+        <h2>Pause</h2>
+        <p>Short break, 5 minutes!</p>
+        <h3>Timer: <span id="pauseDisplay">05:00</span></h3>
+        <button id="startPauseButton">Start</button>
+        <button id="resetPauseButton">Reset</button>
+      </div>
+
+      <div>
+        <h2>Long Pause</h2>
+        <p>Long break, 15 minutes!</p>
+        <h3>Timer: <span id="longPauseDisplay">15:00</span></h3>
+        <button id="startLongPauseButton">Start</button>
+        <button id="resetLongPauseButton">Reset</button>
+      </div>
+
+      <p>👋</p>
+    </div>
+    <script src="./renderer.js"></script>
   </body>
 </html>
