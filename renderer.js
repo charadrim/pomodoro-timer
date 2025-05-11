@@ -1,14 +1,20 @@
-const countDownTimer = function (duration) {
-  let countDownTime = 60;
+const countDownTimer = function (durationInMinutes) {
+  let totalSeconds = durationInMinutes * 60;
 
   const countDownElement = document.getElementById('timerDisplay');
 
-  const interval = setInterval(function () {
-    countDownTime--;
+  const interval = setInterval(() => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
 
-    countDownElement.textContent = countDownTime;
+    countDownElement.textContent = `${String(minutes).padStart(
+      2,
+      '0',
+    )}:${String(seconds).padStart(2, '0')}`;
 
-    if (countDownTime <= 0) {
+    totalSeconds--;
+
+    if (totalSeconds < 0) {
       clearInterval(interval);
       countDownElement.textContent = 'Time is up!';
     }
