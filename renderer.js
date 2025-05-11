@@ -1,19 +1,32 @@
 let currentInterval = null;
 
-const countDownTimer = function (durationInMinutes, display, sectionId) {
+document.querySelectorAll('.toggleHeader').forEach((header) => {
+  header.addEventListener('click', () => {
+    const targetId = header.getAttribute('data-target');
+
+    document.querySelectorAll('.timerSection').forEach((section) => {
+      section.classList.add('hidden');
+    });
+
+    document.getElementById(targetId).classList.remove('hidden');
+  });
+});
+
+const countDownTimer = function (durationInMinutes, displayId, sectionId) {
   if (currentInterval) {
     clearInterval(currentInterval);
   }
 
-  document.getElementById('pomodoroSection').style.display = 'none';
-  document.getElementById('pauseSection').style.display = 'none';
-  document.getElementById('longPauseSection').style.display = 'none';
+  document.querySelectorAll('.timerSection').forEach((section) => {
+    section.classList.add('hidden');
+  });
 
-  document.getElementById(sectionId).style.display = 'block';
+  const activeSection = document.getElementById(sectionId);
+  activeSection.classList.remove('hidden');
 
   let totalSeconds = durationInMinutes * 60;
 
-  const countDownElement = document.getElementById(display);
+  const countDownElement = document.getElementById(displayId);
 
   const interval = setInterval(() => {
     const minutes = Math.floor(totalSeconds / 60);
