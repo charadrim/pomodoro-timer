@@ -1,4 +1,16 @@
-const countDownTimer = function (durationInMinutes, display) {
+let currentInterval = null;
+
+const countDownTimer = function (durationInMinutes, display, sectionId) {
+  if (currentInterval) {
+    clearInterval(currentInterval);
+  }
+
+  document.getElementById('pomodoroSection').style.display = 'none';
+  document.getElementById('pauseSection').style.display = 'none';
+  document.getElementById('longPauseSection').style.display = 'none';
+
+  document.getElementById(sectionId).style.display = 'block';
+
   let totalSeconds = durationInMinutes * 60;
 
   const countDownElement = document.getElementById(display);
@@ -23,20 +35,21 @@ const countDownTimer = function (durationInMinutes, display) {
 
 const startButton = document.getElementById('startButton');
 startButton.addEventListener('click', () => {
-  console.log('Button clicked!');
+  console.log('startButton clicked!');
 
-  countDownTimer(25, 'timerDisplay');
+  countDownTimer(25, 'timerDisplay', 'pomodoroSection');
 });
+
 const startPauseButton = document.getElementById('startPauseButton');
 startPauseButton.addEventListener('click', () => {
-  console.log('Button clicked!');
+  console.log('startPauseButton clicked!');
 
-  countDownTimer(5, 'pauseDisplay');
+  countDownTimer(5, 'pauseDisplay', 'pauseSection');
 });
+
 const startLongPauseButton = document.getElementById('startLongPauseButton');
 startLongPauseButton.addEventListener('click', () => {
-  console.log('Button clicked!');
+  console.log('startLongPauseButton clicked!');
 
-  countDownTimer(15, 'longPauseDisplay');
+  countDownTimer(15, 'longPauseDisplay', 'longPauseSection');
 });
-console.log('This appears in DevTools, NOT terminal');
