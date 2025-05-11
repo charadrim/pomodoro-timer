@@ -1,7 +1,7 @@
-const countDownTimer = function (durationInMinutes) {
+const countDownTimer = function (durationInMinutes, display) {
   let totalSeconds = durationInMinutes * 60;
 
-  const countDownElement = document.getElementById('timerDisplay');
+  const countDownElement = document.getElementById(display);
 
   const interval = setInterval(() => {
     const minutes = Math.floor(totalSeconds / 60);
@@ -25,7 +25,18 @@ const startButton = document.getElementById('startButton');
 startButton.addEventListener('click', () => {
   console.log('Button clicked!');
 
-  countDownTimer(25);
+  countDownTimer(25, 'timerDisplay');
 });
+const startPauseButton = document.getElementById('startPauseButton');
+startPauseButton.addEventListener('click', () => {
+  console.log('Button clicked!');
 
+  countDownTimer(5, 'pauseDisplay');
+});
+const startLongPauseButton = document.getElementById('startLongPauseButton');
+startLongPauseButton.addEventListener('click', () => {
+  console.log('Button clicked!');
+
+  countDownTimer(15, 'longPauseDisplay');
+});
 console.log('This appears in DevTools, NOT terminal');
